@@ -1,7 +1,15 @@
+from importlib import import_module
+from neograte.config import Configuration, Execution
+from py2neo import Graph
 import re
 import os
 
 class MigrationManager:
+  def __init__(self):
+    self.config = Configuration()
+    self.graph = Graph(host=self.config.host, user=self.config.user, 
+      password=self.config.password)
+
   def find_migration_modules(self):
     migration_module_names = list()
 
@@ -13,7 +21,8 @@ class MigrationManager:
 
   def run(self):
     migration_modules = self.find_migration_modules()
-    pass
+    print(self.config.__dict__)
+    print(self.graph)
 
 
 def main():
