@@ -6,6 +6,7 @@ class Execution(Enum):
   UPGRADE = 'upgrade'
 
 class Configuration:
+  migrations_path = 'migrations'
   host = '127.0.0.1'
   user = 'neo4j'
   password = 'neo4j'
