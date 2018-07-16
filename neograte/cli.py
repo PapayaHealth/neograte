@@ -13,7 +13,7 @@ class MigrationManager:
       password=self.config.password)
 
   def _do_migration(self, module_names):
-    sys.path.insert(0, os.getcwd())
+    sys.path.append(os.getcwd())
 
     if self.config.execution == Execution.DOWNGRADE:
       raise NotImplemented('Downgrade not supported yet')
